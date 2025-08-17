@@ -25,6 +25,7 @@ Designed with a minimal aesthetic, smooth animations, and mobile-first responsiv
 
 ## 📂 Project Structure  
 portfolio/
+
 │── index.html # Main HTML file
 
 │── style.css # Stylesheet
