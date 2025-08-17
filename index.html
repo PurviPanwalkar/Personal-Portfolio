@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Purvi Panwalkar — Portfolio ’25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --panel:#ffffff;
+      --ink:#111318;
+      --muted:#6b7280;
+      --brand:#6b7cff;
+      --accent:#ffb87a;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(17,19,24,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92vw);margin:0 auto}
+    header.site{position:sticky;top:0;background:rgba(247,248,251,.8);backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid #eef0f6;z-index:50}
+    nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .dot{width:10px;height:10px;border-radius:20px;background:var(--brand)}
+    .navlinks a{margin-left:18px;color:#2b2f36;font-weight:600}
+
+    /* Hero */
+    .hero{padding:64px 0}
+    .hero-card{background:var(--panel);border-radius:calc(var(--radius) + 6px);box-shadow:var(--shadow);padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero-art{border-radius:16px;overflow:hidden}
+    .pill{background:#eef0fe;color:#2532ff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;display:inline-flex;gap:8px;align-items:center}
+    .title{font-family:"Plus Jakarta Sans",Inter,sans-serif;font-weight:800;font-size:44px;line-height:1.1;margin:12px 0 8px}
+    .subtitle{color:var(--muted);max-width:48ch}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .chip{background:#f2f4f8;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:600;color:#3a3f46}
+
+    /* Sections */
+    section{padding:64px 0;position:relative;overflow:hidden}
+    .section-title{font-family:"Plus Jakarta Sans";font-size:28px;font-weight:800;margin:0 0 18px}
+    .panel{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .about p{color:#3d4048;line-height:1.7}
+    .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #fff4ea;       /* soft peachy background */
+  color: #a14e00;            /* warm brown text */
+  box-shadow: 0 4px 10px rgba(161, 78, 0, 0.1); /* subtle shadow */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.badge:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(161, 78, 0, 0.2);
+}
+
+
+    /* Stats row */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:16px}
+    .stat{padding:18px;border-radius:14px;background:#f7f8ff;border:1px solid #eef0fe;text-align:center}
+    .stat b{font-size:22px}
+
+    /* Projects */
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .filter-btn{border:1px solid #e6e8ef;background:#fff;border-radius:12px;padding:8px 12px;font-weight:700;cursor:pointer}
+    .filter-btn.active{background:#222; color:#fff;border-color:#222}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--panel);border:1px solid #eef0f6;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .card .thumb{aspect-ratio:16/9;background:linear-gradient(145deg,#eef0fe,#f6f7ff)}
+    .card .content{padding:16px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:#f2f4f8;color:#3a3f46;font-weight:600}
+
+    /* Skills */
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .skill{padding:18px;border-radius:16px;background:var(--panel);box-shadow:var(--shadow);text-align:center}
+    .skill .lottie{height:80px;margin-bottom:10px}
+    .bar{height:8px;background:#eef0f6;border-radius:999px;overflow:hidden;margin:6px 0}
+    .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#86a0ff);width:0}
+
+    /* Resume split grid */
+    .resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px}
+    .resume-heading{font-size:22px;font-weight:700;margin-bottom:12px}
+    .timeline-item{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:16px;background:var(--panel);box-shadow:var(--shadow);transition:.3s ease}
+    .timeline-item:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 28px rgba(0,0,0,0.1)}
+    .timeline-item .lottie {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+    .timeline-item:hover .lottie{transform:rotate(8deg) scale(1.1)}
+
+    footer{padding:56px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-card{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .skills{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .resume-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+      .skills{grid-template-columns:1fr}
+    }
+    @keyframes bounce{0%{transform:translateY(0)}30%{transform:translateY(-8px)}60%{transform:translateY(4px)}100%{transform:translateY(0)}}
+
+     /* Floating background shapes */
+  .floating-bg span {
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, var(--brand), transparent);
+    opacity: 0.25;
+    animation: float 18s linear infinite;
+    transition: transform 0.4s ease;
+  }
+
+  .floating-bg span:nth-child(1){ top:20%; left:10%; background: radial-gradient(circle, var(--brand), transparent); animation-duration:20s;}
+  .floating-bg span:nth-child(2){ top:70%; left:20%; background: radial-gradient(circle, var(--accent), transparent); animation-duration:25s;}
+  .floating-bg span:nth-child(3){ top:40%; left:80%; background: radial-gradient(circle, #a78bfa, transparent); animation-duration:22s;}
+  .floating-bg span:nth-child(4){ top:85%; left:60%; background: radial-gradient(circle, #ff90b3, transparent); animation-duration:28s;}
+  .floating-bg span:nth-child(5){ top:10%; left:75%; background: radial-gradient(circle, #86efac, transparent); animation-duration:26s;}
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+  }
+
+  /* Hover grow */
+  .floating-bg span:hover {
+    transform: scale(1.3) !important;
+    opacity: 0.4;
+  }
+
+  /* Animated Gradient Shimmer for Tags */
+[data-category="ui"] .tag {
+  background: linear-gradient(270deg, #2563eb, #3b82f6, #60a5fa);
+  background-size: 400% 400%;
+  color: #fff;
+  animation: shimmerBlue 6s ease infinite;
+}
+
+[data-category="blog"] .tag {
+  background: linear-gradient(270deg, #9333ea, #a855f7, #c084fc);
+  background-size: 400% 400%;
+  color: #fff;
+  animation: shimmerPurple 6s ease infinite;
+}
+
+[data-category="web"] .tag {
+  background: linear-gradient(270deg, #059669, #10b981, #34d399);
+  background-size: 400% 400%;
+  color: #fff;
+  animation: shimmerGreen 6s ease infinite;
+}
+
+/* Glow effect */
+.tag {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tag:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Shimmer keyframes */
+@keyframes shimmerBlue {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmerPurple {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmerGreen {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.lottie-container {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.resume-btn {
+  margin-left: 20px;
+  padding: 8px 16px;
+  background: var(--brand);
+  color: #fff !important;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resume-btn:hover {
+  background: #4f5bd5; /* darker brand shade */
+  transform: translateY(-2px);
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <nav class="wrap">
+        <div class="brand"><span class="dot"></span> Purvi Panwalkar</div>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Experience</a>
+          <a href="#contact">Contact</a>
+          <a href="Purvi_Panwalkar_IT.pdf" download="Purvi_Panwalkar_Resume.pdf" class="resume-btn">Resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-card">
+        <div class="hero-art">
+          <img src="Profile.png" alt="Portfolio ’25 hero"/>
+        </div>
+        <div>
+          <span class="pill">Portfolio ’25</span>
+          <h1 class="title">I'm Purvi Panwalkar</h1>
+          <p class="subtitle">20-year-old designer crafting clean, user-centered interfaces and delightful web experiences. I blend research, design, and code to bring ideas to life.</p>
+          <div class="chips">
+            <span class="chip">UI/UX</span>
+            <span class="chip">Frontend Dev</span>
+            <span class="chip">Graphic Design</span>
+            <span class="chip">Prototyping</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="position:relative;">
+  <div class="floating-bg">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about">
+          <div class="panel" style="padding:20px">
+            <p>I'm a passionate designer and developer who believes great design should be both beautiful and functional. My journey started with sketches and evolved into creating pixel-perfect designs and bringing them to life with modern web technologies. I care about how things look — and how they work.</p>
+            <p>When I'm not designing or coding, I'm exploring design trends, experimenting with new tech, or sipping coffee while sketching ideas. </p>
+            <div class="stats">
+              <div class="stat"><b>1+ yrs</b><div class="muted">UI/UX Experience</div></div>
+              <div class="stat"><b>30%+</b><div class="muted">Engagement Boost</div></div>
+              <div class="stat"><b>25%+</b><div class="muted">Higher Reach</div></div>
+              <div class="stat"><b>3+</b><div class="muted">Real-World Projects</div></div>
+            </div>
+          </div>
+          <div class="panel" style="padding:20px">
+            <span class="badge">What drives me</span>
+            <div class="chips" style="margin-top:12px">
+              <span class="chip">UI Design</span>
+              <span class="chip">Frontend Dev</span>
+              <span class="chip">Innovation</span>
+              <span class="chip">User Experience</span>
+              <span class="chip">Coffee Lover</span>
+              <span class="chip">Product Growth</span>
+            </div>
+            <div style="margin-top:18px;color:#3d4048">
+              <strong>Highlights</strong>
+              <ul>
+                <li>Freelance UI/UX Designer @ Inaya Clothing — boosted engagement by 30% and conversions by 15%.</li>
+                <li>Graphic Designer @ Sigma Systems — 40% higher interaction; 25% more campaign reach.</li>
+                <li>Projects: GeoFixer, World News App, Python Voice Assistant</li>
+                <li>Certifications: Generative AI, Responsible AI, Data Visualization, Practical AI (PMI)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+          <div>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="subtitle">A curated selection showcasing design thinking and technical execution.</p>
+          </div>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ui">UI Design</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="blog">Blogs</button>
+          </div>
+        </div>
+
+        <div class="grid" id="projectGrid">
+          <!-- Example Project Cards -->
+          <article class="card" data-category="web">
+            <div class="thumb"><img src="geofixer.png" alt="GeoFixer"/></div>
+            <div class="content">
+              <h3>GeoFixer – Community Issue Map</h3>
+              <p class="subtitle">Map-based platform for reporting local issues using Leaflet.js & Firebase.</p>
+              <div class="tags"> <span class="tag">PHP</span><span class="tag">MySQL</span> 
+                <a class="tag" href="https://github.com/PurviPanwalkar/World-News---News-Portal" target="_blank" rel="noreferrer">Code</a> 
+                <a class="tag" href="https://drive.google.com/file/d/1skKkWzb46nC2a6kTC2uwRX6sTDaWAcDu/view?usp=sharing" target="_blank" rel="noreferrer">Demo</a> 
+              </div>
+            </div>
+          </article>
+          <article class="card" data-category="web"> 
+            <div class="thumb"> <img src="world news.png" alt="World-News---News-Portal"/> 
+            </div> <div class="content"> <h3>World News — Web App</h3> 
+              <p class="subtitle">PHP + SQL news platform with a clean UI and fast content delivery.</p> 
+              <div class="tags"> <span class="tag">PHP</span><span class="tag">MySQL</span> <a class="tag" href="https://github.com/PurviPanwalkar/World-News---News-Portal" target="_blank" rel="noreferrer">Code</a> 
+                <a class="tag" href="https://drive.google.com/file/d/1skKkWzb46nC2a6kTC2uwRX6sTDaWAcDu/view?usp=sharing" target="_blank" rel="noreferrer">Demo</a> 
+              </div> 
+            </div> 
+          </article>
+           <article class="card" data-category="web">
+             <div class="thumb"> <img src="voice.png" alt="Python-Voice-Assistant-Alexa-Clone"/> 
+            </div> <div class="content"> <h3>Python Voice Assistant — Alexa Clone</h3> 
+              <p class="subtitle">Desktop assistant with speech recognition, TTS and a Tkinter GUI.</p> 
+              <div class="tags"> <span class="tag">Python</span><span class="tag">Tkinter</span> <a class="tag" href="https://github.com/PurviPanwalkar/Python-Voice-Assistant-Alexa-Clone" target="_blank" rel="noreferrer">Code</a> 
+              </div> 
+            </div> 
+          </article> 
+          <!-- UI Design --> 
+           <article class="card" data-category="ui"> 
+            <div class="thumb"> <img src="inaya.png" alt="Portfolio ’25 hero"/> 
+            </div> <div class="content"> <h3>Furniture website </h3> <p class="subtitle">Modern and Elegant UI/UX Design for a Furniture E-Commerce Website.</p> <div class="tags"><span class="tag">Figma</span><span class="tag">Design System</span> 
+              <a class="tag" href="https://www.behance.net/gallery/195634263/Furniture-Website-UIUX" target="_blank" rel="noreferrer">Behance</a> 
+            </div> 
+          </div> 
+        </article> <article class="card" data-category="ui"> 
+          <div class="thumb"> <img src="travel.png" alt="Portfolio ’25 hero"/> 
+          </div> 
+          <div class="content"> <h3>Travel Wesite Design</h3> 
+            <p class="subtitle">Calm color system, soft cards, and guided‑flow onboarding.</p> 
+            <div class="tags"><span class="tag">Figma</span><span class="tag">Prototyping</span> 
+              <a class="tag" href="https://www.behance.net/gallery/195485303/Travel-Website" target="_blank" rel="noreferrer">Behance</a> 
+            </div> 
+          </div> 
+        </article> 
+        <!-- Blogs --> 
+         <article class="card" data-category="blog"> 
+          <div class="thumb"> 
+            <img src="medium.jpg" alt="Portfolio ’25 hero"/> 
+          </div> 
+          <div class="content"> <h3>My Writing Space</h3> 
+            <p class="subtitle">A collection of experiences, lessons, and reflections shared on Medium.</p> <div class="tags"> 
+              <a class="tag" href="https://medium.com/@panwalkarsayali27" target="_blank" rel="noreferrer">Read on Medium</a> 
+            </div> 
+          </div> 
+        </article> 
+          <article class="card" data-category="blog"> 
+              <div class="thumb"> 
+                <img src="Behance.jpg" alt="Portfolio ’25 hero"/> </div> 
+                <div class="content"> <h3>From Wireframes to Pixels</h3> 
+              <p class="subtitle">A quick look at my UI/UX workflow and handoff checklist.</p> 
+              <div class="tags"> <a class="tag" href="https://www.behance.net/purvipanvalkar23" target="_blank" rel="noreferrer">Behance</a> 
+              </div> 
+            </div> 
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+<!-- SKILLS -->
+<section id="skills" style="position:relative;">
+  <div class="floating-bg">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="container">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills">
+
+      <!-- Design Tools -->
+      <div class="skill">
+        <div class="lottie" id="design-tools"></div>
+        <h4>Design Tools</h4>
+        <p class="subtitle">Creating beautiful, user-centered designs</p>
+        <div class="bar"><span style="width:95%"></span></div><small>Figma (95%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Wireframing & Prototyping (90%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Creative Design (88%)</small>
+      </div>
+
+      <!-- Frontend Development -->
+      <div class="skill">
+        <div class="lottie" id="frontend-dev"></div>
+        <h4>Frontend Development</h4>
+        <p class="subtitle">Bringing designs to life</p>
+        <div class="bar"><span style="width:92%"></span></div><small>HTML/CSS/JS (92%)</small>
+        <div class="bar"><span style="width:88%"></span></div><small>React/Next (88%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Firebase Integration (85%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Git/Github (87%)</small>
+      </div>
+
+      <!-- UX Research -->
+      <div class="skill">
+        <div class="lottie" id="ux-research"></div>
+        <h4>UX Research</h4>
+        <p class="subtitle">Understanding users & their needs</p>
+        <div class="bar"><span style="width:90%"></span></div><small>User Interviews & Usability Testing(90%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Data Visualization & Insights (88%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>Problem-Solving & Critical Thinking (82%)</small>
+        
+      </div>
+
+      <!-- Backend & Tools -->
+      <div class="skill">
+        <div class="lottie" id="backend-tools"></div>
+        <h4>Backend & Tools</h4>
+        <p class="subtitle">Robust, scalable solutions</p>
+        <div class="bar"><span style="width:80%"></span></div><small>Node.js (80%)</small>
+        <div class="bar"><span style="width:75%"></span></div><small>Python (75%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>PHP & MySQL (78%)</small>
+        <div class="bar"><span style="width:85%"></span></div><small>SQL Database Management(82%)</small>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- EXPERIENCE / EDUCATION -->
+    <section id="resume">
+      <div class="container">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="resume-grid">
+          <!-- Experience -->
+          <div>
+            <h3 class="resume-heading">Experience</h3>
+            <div class="timeline-item" id="exp1">
+              <div class="lottie" id="exp-freelance">
+            </div>
+              <div>
+                <h4>Freelance UI/UX Designer — Inaya Clothing</h4>
+                <small>Jun 2024 — Jul 2024 · Remote</small>
+                <p>Designed intuitive web & mobile interfaces; increased user engagement by 30% and conversions by 15%.</p>
+              </div>
+            </div>
+            <div class="timeline-item" id="exp2">
+              <div class="lottie" id="exp-graphic">
+                
+              </div>
+              <div>
+                <h4>Graphic Designer — Sigma Systems</h4>
+                <small>Jan 2024 — Jun 2024 · Mumbai</small>
+                <p>Produced high-conversion creatives with Figma, Canva & Photoshop, boosting interaction by 40%.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div>
+            <h3 class="resume-heading">Education</h3>
+            <div class="timeline-item" id="edu1">
+              <div class="lottie" id="edu-btech">
+               
+              </div>
+              <div>
+                <h4>B.Tech — Information Technology</h4>
+                <small>Usha Mittal Institute of Technology, SNDT · 2024–2027</small>
+                <p>Current SGPA 8.15; focus on UI/UX, web technologies and software design.</p>
+              </div>
+            </div>
+            <div class="timeline-item" id="edu2">
+              <div class="lottie" id="edu-diploma">
+                
+              </div>
+              <div>
+                <h4>Diploma — Information Technology</h4>
+                <small>Government Polytechnic Mumbai · 2021</small>
+                <p>Percentage 90.83%; strong foundation in programming & databases.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="panel" style="padding:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+          <p class="subtitle">Open to UI/UX, front-end and design opportunities. I'm available for freelance and internships.</p>
+          <div class="chips">
+            <a class="chip" href="mailto:panwalkarpurvi@gmail.com">Email</a>
+            <a class="chip" href="https://www.linkedin.com/in/purvi-panwalkar-950b66258/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="chip" href="https://github.com/PurviPanwalkar" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="chip" href="https://www.behance.net/purvipanvalkar23" target="_blank" rel="noreferrer">Behance</a>
+            <a class="chip" href="https://medium.com/@panwalkarsayali27" target="_blank" rel="noreferrer">Medium</a>
+       
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2025 Purvi Panwalkar • Portfolio</div></footer>
+
+  <!-- Lottie CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script>
+  // Skills animations (keep as is)
+  lottie.loadAnimation({container:document.getElementById('design-tools'),renderer:'svg',loop:true,autoplay:true,path:"https://assets10.lottiefiles.com/packages/lf20_puciaact.json"});
+  lottie.loadAnimation({container:document.getElementById('frontend-dev'),renderer:'svg',loop:true,autoplay:true,path:"https://assets10.lottiefiles.com/packages/lf20_cwqf5i6h.json"});
+  lottie.loadAnimation({container:document.getElementById('ux-research'),renderer:'svg',loop:true,autoplay:true,path:"https://assets2.lottiefiles.com/packages/lf20_tno6cg2w.json"});
+  lottie.loadAnimation({container:document.getElementById('backend-tools'),renderer:'svg',loop:true,autoplay:true,path:"https://assets8.lottiefiles.com/packages/lf20_jtbfg2nb.json"});
+
+  // Function to load Lottie with fallback
+  function loadLottieWithFallback(containerId, path, fallbackSVG) {
+    const container = document.getElementById(containerId);
+
+    // Insert fallback SVG immediately
+    container.innerHTML = fallbackSVG;
+
+    const anim = lottie.loadAnimation({
+      container,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path
+    });
+
+    // Remove fallback once animation loads
+    anim.addEventListener('DOMLoaded', () => {
+    const fallback = container.querySelector("svg"); 
+    if (fallback) fallback.remove(); // only remove fallback, not whole container
+  });
+
+    anim.addEventListener('error', () => {
+      console.warn(`Lottie failed for: ${containerId}`);
+    });
+  }
+
+  // Experience
+  loadLottieWithFallback(
+  "exp-freelance",
+  "Freelance woman working.json", // 🔄 Replace with freelancing animation
+  `<svg width="60" height="60"><rect width="60" height="60" fill="#FF9900"/></svg>`
+);
+
+loadLottieWithFallback(
+  "exp-graphic",
+  "Internship.json", // 🔄 Replace with office work animation
+  `<svg width="60" height="60"><rect width="60" height="60" fill="#0099FF"/></svg>`
+);
+
+loadLottieWithFallback(
+  "edu-btech",
+  "graduate san.json", // 🔄 Replace with graduation/student animation
+  `<svg width="60" height="60"><circle cx="30" cy="30" r="30" fill="#00CC66"/></svg>`
+);
+
+loadLottieWithFallback(
+  "edu-diploma",
+  "Web Development.json", // 🔄 Replace with studying animation
+  `<svg width="60" height="60"><rect width="60" height="60" fill="#FF3366"/></svg>`
+);
+
+
+  // Bounce effect on timeline items
+  document.querySelectorAll('.timeline-item').forEach(item=>{
+    item.addEventListener('mouseenter',()=>{item.style.animation="bounce 0.6s"});
+    item.addEventListener('animationend',()=>{item.style.animation=""});
+  });
+
+  // Interactive parallax effect for floating bubbles
+  document.querySelectorAll('.floating-bg').forEach(bg => {
+    const spans = bg.querySelectorAll('span');
+    document.addEventListener('mousemove', e => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 30;
+      const y = (e.clientY / innerHeight - 0.5) * 30;
+      spans.forEach((span, i) => {
+        span.style.transform = `translate(${x/(i+1)}px, ${y/(i+1)}px)`;
+      });
+    });
+  });
+
+  // Project filter buttons
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll("#projectGrid .card");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      projectCards.forEach(card => {
+        if (filter === "all" || card.getAttribute("data-category") === filter) {
+          card.style.display = "flex";
+          card.style.animation = "fadeIn 0.6s ease";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // Fade-in animation for cards
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>
+
+
