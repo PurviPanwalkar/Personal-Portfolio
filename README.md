@@ -24,3 +24,26 @@ Designed with a minimal aesthetic, smooth animations, and mobile-first responsiv
 ---
 
 ## 📂 Project Structure  
+portfolio/
+│── index.html # Main HTML file
+│── style.css # Stylesheet
+│── script.js # JavaScript for animations & interactivity
+│── assets/ # Images, icons, and resources
+
+## 🚀 Deployment  
+This portfolio is hosted using **GitHub Pages**.  
+
+To deploy your own version:  
+1. Fork this repository  
+2. Push your changes  
+3. Go to **Settings > Pages > Source**, select `main` branch, and save
+
+## 📬 Contact  
+👩‍💻 **Purvi Panwalkar**  
+- 🌍 Portfolio: [your-username.github.io/portfolio](https://your-username.github.io/portfolio/)  
+- 💼 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
+- 📧 Email: yourname@example.com  
+
+---
+
+⭐ If you found this project useful, please consider giving it a **star**!  
