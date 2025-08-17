@@ -3,7 +3,7 @@
 A clean and responsive **personal portfolio website** showcasing my **projects, skills, and professional experience**.  
 Designed with a minimal aesthetic, smooth animations, and mobile-first responsiveness.  
 
-🔗 **Live Demo:** [View Portfolio](https://your-username.github.io/portfolio/)  
+🔗 **Live:** https://purvipanwalkar.netlify.app/
 
 ---
 
@@ -45,7 +45,6 @@ To deploy your own version:
 ## 📬 Contact  
 👩‍💻 **Purvi Panwalkar**  
 - 🌍 Portfolio: https://purvipanwalkar.netlify.app/ 
-/)  
 - 💼 LinkedIn: https://www.linkedin.com/in/purvi-panwalkar-950b66258/
 - 📧 Email: panwalkarpurvi@gmail.com  
 
