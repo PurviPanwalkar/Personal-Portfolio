@@ -44,10 +44,10 @@ To deploy your own version:
 
 ## 📬 Contact  
 👩‍💻 **Purvi Panwalkar**  
-- 🌍 Portfolio: [your-username.github.io/portfolio](https://purvipanwalkar.netlify.app/ />
+- 🌍 Portfolio: https://purvipanwalkar.netlify.app/ 
 /)  
-- 💼 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
-- 📧 Email: yourname@example.com  
+- 💼 LinkedIn: https://www.linkedin.com/in/purvi-panwalkar-950b66258/
+- 📧 Email: panwalkarpurvi@gmail.com  
 
 ---
 
