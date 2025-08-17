@@ -44,7 +44,8 @@ To deploy your own version:
 
 ## 📬 Contact  
 👩‍💻 **Purvi Panwalkar**  
-- 🌍 Portfolio: [your-username.github.io/portfolio](https://your-username.github.io/portfolio/)  
+- 🌍 Portfolio: [your-username.github.io/portfolio](https://purvipanwalkar.netlify.app/ />
+/)  
 - 💼 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
 - 📧 Email: yourname@example.com  
 
